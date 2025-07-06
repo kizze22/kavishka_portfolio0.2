@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavishka Kumararathna | Design Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500;
+            }
+            .glass-effect {
+                backdrop-filter: blur(16px) saturate(180%);
+                -webkit-backdrop-filter: blur(16px) saturate(180%);
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.125);
+            }
+            .floating {
+                animation: float 6s ease-in-out infinite;
+            }
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+                100% { transform: translateY(0px); }
+            }
+            .rotate-3d {
+                transform-style: preserve-3d;
+                animation: rotate 20s infinite linear;
+            }
+            @keyframes rotate {
+                0% { transform: rotateY(0deg); }
+                100% { transform: rotateY(360deg); }
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans overflow-x-hidden">
+    <!-- Animated Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 opacity-90"></div>
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-10 left-1/4 w-64 h-64 rounded-full bg-purple-600 filter blur-3xl opacity-40"></div>
+            <div class="absolute bottom-20 right-1/4 w-72 h-72 rounded-full bg-pink-600 filter blur-3xl opacity-40"></div>
+            <div class="absolute top-1/2 left-1/2 w-80 h-80 rounded-full bg-blue-600 filter blur-3xl opacity-30"></div>
+        </div>
+    </div>
+
+    <!-- Floating particles -->
+    <div id="particles-js" class="fixed inset-0 -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-effect fixed top-0 left-0 right-0 z-50 py-4 px-6 md:px-12 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold text-gradient">Kavishka.</a>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="hover:text-purple-400 transition-colors">Home</a>
+            <a href="#services" class="hover:text-purple-400 transition-colors">Services</a>
+            <a href="#work" class="hover:text-purple-400 transition-colors">Work</a>
+            <a href="#contact" class="hover:text-purple-400 transition-colors">Contact</a>
+        </div>
+        <button class="md:hidden text-2xl" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-gray-900 bg-opacity-95 z-40 flex flex-col items-center justify-center hidden">
+        <button class="absolute top-6 right-6 text-2xl" id="menu-close">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="flex flex-col space-y-8 text-center">
+            <a href="#home" class="text-3xl hover:text-purple-400 transition-colors">Home</a>
+            <a href="#services" class="text-3xl hover:text-purple-400 transition-colors">Services</a>
+            <a href="#work" class="text-3xl hover:text-purple-400 transition-colors">Work</a>
+            <a href="#contact" class="text-3xl hover:text-purple-400 transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20 px-6 md:px-12 lg:px-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                    Hi, I'm <span class="text-gradient">Kavishka Kumararathna</span>
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-purple-300">Designer & Digital Creator</h2>
+                <p class="text-lg text-gray-300 max-w-lg">
+                    Crafting visually stunning experiences that blend creativity with functionality. 
+                    I transform ideas into memorable digital realities.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all">
+                        Get in Touch
+                    </a>
+                    <a href="#work" class="px-8 py-3 border border-purple-400 rounded-full font-medium hover:bg-purple-900/30 transition-all">
+                        View Work
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-xl opacity-30 floating"></div>
+                    <div class="absolute inset-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 blur-lg opacity-20 floating" style="animation-delay: 1s;"></div>
+                    <div class="relative w-full h-full rounded-full overflow-hidden border-4 border-purple-500/20 floating" style="animation-delay: 2s;">
+                        <img src="img/Untitled design.jpg">
+                             alt="Kavishka Kumararathna" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-gradient">Services</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">Comprehensive design solutions tailored to elevate your brand and digital presence</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-purple-900/20 transition-all group">
+                <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600/40 transition-all">
+                    <i class="fas fa-paint-brush text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Graphic Designing</h3>
+                <p class="text-gray-300">
+                    Captivating visual identities, logos, and branding materials that make your business stand out.
+                </p>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-purple-900/20 transition-all group">
+                <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600/40 transition-all">
+                    <i class="fas fa-code text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Web Designing</h3>
+                <p class="text-gray-300">
+                    Responsive, user-friendly websites that combine aesthetics with seamless functionality.
+                </p>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-purple-900/20 transition-all group">
+                <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600/40 transition-all">
+                    <i class="fas fa-mobile-screen text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">UI/UX Designing</h3>
+                <p class="text-gray-300">
+                    Intuitive interfaces and engaging user experiences that keep visitors coming back.
+                </p>
+            </div>
+            
+            <!-- Service 4 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-purple-900/20 transition-all group">
+                <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600/40 transition-all">
+                    <i class="fas fa-bullhorn text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Digital Marketing</h3>
+                <p class="text-gray-300">
+                    Strategic online campaigns that drive traffic, engagement, and conversions.
+                </p>
+            </div>
+            
+            <!-- Service 5 -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-purple-900/20 transition-all group">
+                <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600/40 transition-all">
+                    <i class="fas fa-hashtag text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Social Media Managing</h3>
+                <p class="text-gray-300">
+                    Consistent, on-brand content that grows your audience and strengthens community.
+                </p>
+            </div>
+            
+            <!-- Service 6 (Custom) -->
+            <div class="glass-effect rounded-2xl p-8 hover:bg-purple-900/20 transition-all group">
+                <div class="w-16 h-16 bg-purple-600/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-purple-600/40 transition-all">
+                    <i class="fas fa-star text-2xl text-purple-400"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Custom Solutions</h3>
+                <p class="text-gray-300">
+                    Tailored design and marketing packages to meet your specific business needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Showcase -->
+    <section id="work" class="py-20 px-6 md:px-12 lg:px-24 bg-gray-800/30">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured <span class="text-gradient">Work</span></h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">A selection of my recent design projects and creative work</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 -->
+            <div class="group relative overflow-hidden rounded-2xl h-80">
+                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" 
+                     alt="Web Design Project" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2">E-commerce Website</h3>
+                    <p class="text-gray-300 mb-4">Modern online store with intuitive navigation</p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-purple-600/30 rounded-full text-sm">Web Design</span>
+                        <span class="px-3 py-1 bg-pink-600/30 rounded-full text-sm">UI/UX</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 2 -->
+            <div class="group relative overflow-hidden rounded-2xl h-80">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Branding Project" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2">Corporate Branding</h3>
+                    <p class="text-gray-300 mb-4">Complete visual identity for tech startup</p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-purple-600/30 rounded-full text-sm">Graphic Design</span>
+                        <span class="px-3 py-1 bg-blue-600/30 rounded-full text-sm">Branding</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="group relative overflow-hidden rounded-2xl h-80">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Mobile App Project" 
+                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2">Fitness Mobile App</h3>
+                    <p class="text-gray-300 mb-4">Workout tracking with social features</p>
+                    <div class="flex space-x-2">
+                        <span class="px-3 py-1 bg-pink-600/30 rounded-full text-sm">UI/UX</span>
+                        <span class="px-3 py-1 bg-green-600/30 rounded-full text-sm">App Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-12">
+            <button class="px-8 py-3 border border-purple-400 rounded-full font-medium hover:bg-purple-900/30 transition-all">
+                View All Projects
+            </button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 lg:px-24">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="text-gradient">Touch</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Have a project in mind or want to discuss potential collaboration?</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <h3 class="text-2xl font-bold">Contact Information</h3>
+                    <p class="text-gray-300">
+                        Feel free to reach out for project inquiries, collaborations, or just to say hello!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-600/20 flex items-center justify-center">
+                                <i class="fas fa-envelope text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Email</h4>
+                                <a href="mailto:kavishkamalan7@gmail.com" class="text-gray-400 hover:text-purple-400 transition-colors">kavishkamalan7@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-purple-600/20 flex items-center justify-center">
+                                <i class="fas fa-phone text-purple-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium">Phone</h4>
+                                <a href="tel:+94775592321" class="text-gray-400 hover:text-purple-400 transition-colors">+94 77559 2321</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-4">
+                        <h4 class="font-medium mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-purple-600 transition-colors flex items-center justify-center">
+                                <i class="fab fa-dribbble"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-600 transition-colors flex items-center justify-center">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-pink-600 transition-colors flex items-center justify-center">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-800 hover:bg-blue-400 transition-colors flex items-center justify-center">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-effect rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">Send a Message</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2">Email Address</label>
+                            <input type="email" id="email" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2">Subject</label>
+                            <input type="text" id="subject" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 md:px-12 lg:px-24 border-t border-gray-800">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0">
+                <a href="#" class="text-2xl font-bold text-gradient">Kavishka.</a>
+                <p class="text-gray-400 mt-2">© 2025 All rights reserved</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#home" class="text-gray-400 hover:text-purple-400 transition-colors">Home</a>
+                <a href="#services" class="text-gray-400 hover:text-purple-400 transition-colors">Services</a>
+                <a href="#work" class="text-gray-400 hover:text-purple-400 transition-colors">Work</a>
+                <a href="#contact" class="text-gray-400 hover:text-purple-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center shadow-lg hover:bg-purple-700 transition-colors hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.remove('hidden');
+        });
+        
+        document.getElementById('menu-close').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate hero section
+        gsap.from('#home h1', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.3
+        });
+        
+        gsap.from('#home h2', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.5
+        });
+        
+        gsap.from('#home p', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.7
+        });
+        
+        gsap.from('#home a', {
+            duration: 1,
+            y: 50,
+            opacity: 0,
+            ease: 'power3.out',
+            delay: 0.9,
+            stagger: 0.1
+        });
+        
+        gsap.from('#home img', {
+            duration: 1,
+            scale: 0.8,
+            opacity: 0,
+            ease: 'back.out(1.7)',
+            delay: 0.5
+        });
+        
+        // Animate services
+        gsap.utils.toArray('.glass-effect').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+        
+        // Animate work items
+        gsap.utils.toArray('.group').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+        
+        // Particles.js background
+        document.addEventListener('DOMContentLoaded', function() {
+            // This would normally be loaded from particles.js library
+            // For simplicity, we're simulating the effect with CSS
+            const particlesContainer = document.getElementById('particles-js');
+            if (particlesContainer) {
+                for (let i = 0; i < 50; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'absolute rounded-full bg-white/10';
+                    particle.style.width = `${Math.random() * 5 + 2}px`;
+                    particle.style.height = particle.style.width;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    particle.style.opacity = Math.random() * 0.5 + 0.1;
+                    particle.style.animation = `float ${Math.random() * 10 + 5}s ease-in-out infinite`;
+                    particle.style.animationDelay = `${Math.random() * 5}s`;
+                    particlesContainer.appendChild(particle);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
